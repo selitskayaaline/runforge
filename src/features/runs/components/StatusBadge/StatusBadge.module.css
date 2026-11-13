@@ -1,0 +1,51 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  min-height: 27px;
+  padding: 0 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-family:
+    'IBM Plex Mono', SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  font-size: 8px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.queued {
+  color: #747b87;
+  background: #f0f1f2;
+  border-color: #e6e8eb;
+}
+
+.running {
+  color: #95620d;
+  background: #fff5dc;
+  border-color: #f5e5b9;
+}
+
+.running .dot {
+  box-shadow: 0 0 0 3px rgb(188 131 25 / 13%);
+}
+
+.succeeded {
+  color: #287455;
+  background: #e8f4ed;
+  border-color: #d9ebdf;
+}
+
+.failed {
+  color: #a4463c;
+  background: #faece9;
+  border-color: #f2deda;
+}
