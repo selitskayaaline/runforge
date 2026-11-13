@@ -11,6 +11,7 @@
   color: #171716;
   background-color: #f4f1eb;
   font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
