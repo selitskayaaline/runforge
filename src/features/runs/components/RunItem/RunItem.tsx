@@ -2,6 +2,7 @@ import { ArrowUpRight, GitBranch } from 'lucide-react';
 
 import type { Run } from '../../types/run';
 import StatusBadge from '../StatusBadge/StatusBadge';
+import { formatRunDate, formatRunDuration } from '../../utils/formatRun';
 
 import styles from './RunItem.module.css';
 
@@ -11,20 +12,8 @@ interface RunItemProps {
 }
 
 function RunItem({ run, onOpen }: RunItemProps) {
-  const formattedDate = new Date(run.createdAt).toLocaleString('ru-RU', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-  });
-
-  const duration = run.durationSeconds;
-
-  const formattedDuration =
-    duration === undefined
-      ? '—'
-      : `${Math.floor(duration / 60)} min. ${duration % 60} sec.`;
+  const formattedDate = formatRunDate(run.createdAt);
+  const formattedDuration = formatRunDuration(run.durationSeconds);
 
   return (
     <li className={styles.item}>
