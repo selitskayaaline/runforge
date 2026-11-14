@@ -25,9 +25,9 @@ const mainNavigation = [
 function Sidebar({ isOpen, onClose }: SidebarProps) {
   return (
     <aside
+      id="workspace-sidebar"
       className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}
       aria-label="Sidebar navigation"
-      aria-hidden={!isOpen && undefined}
     >
       <div className={styles.mainSection}>
         <h2 className={styles.sectionTitle}>WORKSPACE</h2>
