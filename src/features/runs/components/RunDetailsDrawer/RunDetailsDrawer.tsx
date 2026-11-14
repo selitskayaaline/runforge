@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
 import type { Run } from '../../types/run';
-import { formatRunDate, formatRunDuration } from '../../utils/formatRun';
 import StatusBadge from '../StatusBadge/StatusBadge';
 
 import styles from './RunDetailsDrawer.module.css';
+import { formatRunDate, formatRunDuration } from '../../utils/formatRun';
 
 interface RunDetailsDrawerProps {
   run: Run | null;
