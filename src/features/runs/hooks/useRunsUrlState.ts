@@ -10,6 +10,8 @@ interface RunsUrlState {
   selectedRunId: string | null;
 }
 
+const RUNS_PATH = '/runs';
+
 const VALID_STATUSES: StatusFilter[] = [
   'all',
   'queued',
@@ -55,7 +57,8 @@ function writeUrlState(state: RunsUrlState, replace = false): void {
   else params.delete('run');
 
   const query = params.toString();
-  const nextUrl = `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`;
+  const nextUrl = `${RUNS_PATH}${query ? `?${query}` : ''}${window.location.hash}`;
+
   window.history[replace ? 'replaceState' : 'pushState'](null, '', nextUrl);
 }
 
@@ -99,18 +102,22 @@ export function useRunsUrlState(runs: Run[]) {
     (search: string) => updateState({ search }, true),
     [updateState],
   );
+
   const setStatus = useCallback(
     (status: StatusFilter) => updateState({ status }),
     [updateState],
   );
+
   const setSort = useCallback(
     (sort: SortOption) => updateState({ sort }),
     [updateState],
   );
+
   const openRun = useCallback(
     (run: Run) => updateState({ selectedRunId: run.id }),
     [updateState],
   );
+
   const closeRun = useCallback(
     () => updateState({ selectedRunId: null }, true),
     [updateState],
@@ -126,3 +133,5 @@ export function useRunsUrlState(runs: Run[]) {
     closeRun,
   };
 }
+
+export default useRunsUrlState;
